@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f3eee2">
+  <title>工科知识图谱 · 五门基础课交互思维导图</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-seal" aria-hidden="true">工</div>
+        <div>
+          <h1>工科知识图谱</h1>
+          <p>ENGINEERING KNOWLEDGE ATLAS</p>
+        </div>
+      </div>
+
+      <nav class="course-tabs" id="courseTabs" aria-label="课程切换"></nav>
+
+      <div class="top-actions">
+        <label class="search" for="searchInput">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.2-3.2"></path>
+          </svg>
+          <input id="searchInput" type="search" placeholder="搜索章节、知识点…" autocomplete="off" spellcheck="false" aria-label="搜索章节与知识点">
+          <kbd>/</kbd>
+        </label>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="切换深浅主题"></button>
+        <button class="icon-btn" id="menuBtn" type="button" aria-label="打开章节导航">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" id="sidebar" aria-label="课程章节导航">
+        <div class="course-head" id="courseHead"></div>
+        <div class="side-scroll">
+          <div class="side-label">
+            <span>章节导航</span>
+            <span id="sideCount"></span>
+          </div>
+          <button class="all-chapters" id="allChapters" type="button">
+            <span>全部章节</span>
+            <span id="allCount"></span>
+          </button>
+          <div id="chapterList"></div>
+        </div>
+        <div class="side-foot">
+          <div class="progress-label" id="progressLabel">
+            <span>掌握进度</span>
+            <b id="progressCount">0 / 0</b>
+          </div>
+          <div class="progress-bar"><i id="progressBar"></i></div>
+        </div>
+      </aside>
+
+      <main class="stage">
+        <div class="stage-toolbar">
+          <div class="crumbs" id="crumbs"></div>
+          <div class="tools">
+            <div class="seg" id="levelSeg" role="group" aria-label="展开层级">
+              <button type="button" data-level="1" class="active">章</button>
+              <button type="button" data-level="2">节</button>
+              <button type="button" data-level="3">考点</button>
+            </div>
+            <span class="tool-sep"></span>
+            <span class="zoom-label" id="zoomLabel">100%</span>
+            <button class="fit-btn" id="fitBtn" type="button" title="适应视图（0）">适应</button>
+          </div>
+        </div>
+
+        <div class="viewport" id="viewport">
+          <div class="watermark" id="watermark" aria-hidden="true">∫</div>
+
+          <div id="world">
+            <svg id="links" aria-hidden="true"></svg>
+            <div id="nodes"></div>
+          </div>
+
+          <div class="search-panel" id="searchPanel" hidden></div>
+
+          <aside class="detail" id="detail" hidden aria-label="节点详情">
+          </aside>
+
+          <div class="legend" aria-hidden="true">
+            <span><i class="l-ch"></i>章</span>
+            <span><i class="l-sec"></i>节</span>
+            <span><i class="l-pt"></i>知识点</span>
+          </div>
+
+          <div class="zoom-pill" aria-label="视图缩放">
+            <button type="button" id="zoomOut" aria-label="缩小">−</button>
+            <button type="button" id="zoomIn" aria-label="放大">+</button>
+            <button type="button" id="zoomFit" aria-label="适应视图">⤢</button>
+          </div>
+
+          <div class="hint" id="hint">拖拽平移 · 滚轮缩放 · 点击节点展开 · 按 / 搜索</div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="data/01-gaoshu.js"></script>
+  <script src="data/02-xiandai.js"></script>
+  <script src="data/03-gailv.js"></script>
+  <script src="data/04-wuli.js"></script>
+  <script src="data/05-cailiao.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
